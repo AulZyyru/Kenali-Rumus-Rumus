@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pembuktian Volume Kubus</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+
+<div class="wrap">
+  <div class="eyebrow">📐 Matematika Geometri</div>
+  <h1>Pembuktian Volume Kubus</h1>
+  <p class="subtitle">Isi kubus besar dengan kubus kecil 1 cm³ — satu per satu!</p>
+
+  <div class="chips">
+    <div class="chip"><div class="chip-lbl">Kubus Masuk</div><div class="chip-val ct" id="st-n">0</div></div>
+    <div class="chip"><div class="chip-lbl">Lapisan</div><div class="chip-val cg" id="st-l">0 / 3</div></div>
+    <div class="chip"><div class="chip-lbl">Progress</div><div class="chip-val cv" id="st-p">0%</div></div>
+  </div>
+
+  <div class="card">
+    <div class="sl-head">
+      <span class="sl-title">Panjang Sisi (s)</span>
+      <div style="display:flex;align-items:center;gap:.5rem">
+        <input type="number" id="slider" class="size-input" min="1" max="100" value="3" oninput="changeSize()">
+        <span style="font-size:.82rem;font-weight:800;color:#6655aa">cm (1–100)</span>
+      </div>
+    </div>
+
+    <div class="cv-wrap"><canvas id="cv" width="540" height="320"></canvas></div>
+    <div class="rot-hint" id="rot-hint">🖱️ Drag untuk memutar kubus</div>
+
+    <div class="pg-head">
+      <span class="pg-lbl">Mengisi Kubus</span>
+      <span class="pg-pct" id="pg-pct">0%</span>
+    </div>
+    <div class="pg-track"><div class="pg-fill" id="pg" style="width:0%"></div></div>
+    <div class="pg-msg" id="pg-msg"></div>
+
+    <div class="btns">
+      <button class="btn b1" id="btn-add" onclick="addOne()">➕ Masukkan 1 Kubus</button>
+      <button class="btn b2" id="btn-all" onclick="fillAll()">⚡ Isi Semua</button>
+      <button class="btn b3" onclick="reset()">↺ Ulangi</button>
+    </div>
+
+    <div class="log-lbl">📋 Riwayat Pengisian</div>
+    <div class="log" id="log"></div>
+  </div>
+</div>
+
+<div id="cel">
+  <div class="cel-box">
+    <div class="cel-em">🎉</div>
+    <div class="cel-title">Kubus Penuh!</div>
+    <button class="btn-cel" onclick="closeCel()">✅ Lanjutkan</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
